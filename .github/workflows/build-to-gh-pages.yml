@@ -1,0 +1,55 @@
+name: 构建到 gh-pages 分支
+
+on:
+    push:
+        branches:
+            - main
+    workflow_dispatch:
+
+permissions:
+    contents: write
+    id-token: write
+    pages: write
+
+concurrency:
+    group: 'pages'
+    cancel-in-progress: false
+
+defaults:
+    run:
+        shell: bash
+
+jobs:
+    build-and-push:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: 检出代码
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - name: 安装 zola
+              uses: taiki-e/install-action@v2
+              with:
+                  tool: zola
+
+            - name: 列出构建目录内容
+              run: ls -la ./
+
+            - name: 引入子模块
+              run: git submodule update --init --recursive
+
+            - name: 构建 Zola 站点
+              run: zola build
+
+            - name: 列出构建输出目录内容
+              run: ls -la ./public
+
+            - name: 部署到 gh-pages 分支
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ./public
+                  commit_message: 'Build and deploy to gh-pages'
+                  publish_branch: gh-pages
