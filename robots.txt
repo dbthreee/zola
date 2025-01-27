@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 Allow: /
-Sitemap: https://dbthreee.github.io/zola/sitemap.xml
+Sitemap: https://example.com/sitemap.xml

@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://dbthreee.github.io/zola/</loc>
+        <loc>https://example.com/</loc>
     </url>
     <url>
-        <loc>https://dbthreee.github.io/zola/categories/</loc>
+        <loc>https://example.com/blog/</loc>
     </url>
     <url>
-        <loc>https://dbthreee.github.io/zola/my-new-post/</loc>
-        <lastmod>2024-11-02</lastmod>
+        <loc>https://example.com/blog/first/</loc>
+        <lastmod>2025-01-13</lastmod>
     </url>
     <url>
-        <loc>https://dbthreee.github.io/zola/page/1/</loc>
-    </url>
-    <url>
-        <loc>https://dbthreee.github.io/zola/tags/</loc>
+        <loc>https://example.com/blog/second/</loc>
+        <lastmod>2025-01-13</lastmod>
     </url>
 </urlset>
